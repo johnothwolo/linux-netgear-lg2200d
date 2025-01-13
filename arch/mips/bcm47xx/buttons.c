@@ -416,6 +416,12 @@ bcm47xx_buttons_netgear_r6200_v1[] __initconst = {
 };
 
 static const struct gpio_keys_button
+bcm47xx_buttons_netgear_lg2200d_v1[] __initconst = {
+	BCM47XX_GPIO_KEY(23, KEY_WPS_BUTTON),
+	BCM47XX_GPIO_KEY(21, KEY_RESTART), /* Hard reset */
+};
+
+static const struct gpio_keys_button
 bcm47xx_buttons_netgear_r6300_v1[] __initconst = {
 	BCM47XX_GPIO_KEY(6, KEY_RESTART),
 };
@@ -728,6 +734,8 @@ int __init bcm47xx_buttons_register(void)
 	case BCM47XX_BOARD_NETGEAR_R6200_V1:
 		err = bcm47xx_copy_bdata(bcm47xx_buttons_netgear_r6200_v1);
 		break;
+	case BCM47XX_BOARD_NETGEAR_LG2200D_V1:
+		err = bcm47xx_copy_bdata(bcm47xx_buttons_netgear_lg2200d_v1);
 	case BCM47XX_BOARD_NETGEAR_R6300_V1:
 		err = bcm47xx_copy_bdata(bcm47xx_buttons_netgear_r6300_v1);
 		break;

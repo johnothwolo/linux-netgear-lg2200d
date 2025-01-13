@@ -547,6 +547,14 @@ bcm47xx_leds_netgear_wnr834bv2[] __initconst = {
 	BCM47XX_GPIO_LED(7, "unk", "connected", 0, LEDS_GPIO_DEFSTATE_OFF),
 };
 
+static const struct gpio_led
+bcm47xx_leds_netgear_lg2200dv1[] __initconst = {
+	BCM47XX_GPIO_LED(3, "white", "wlan", 0, LEDS_GPIO_DEFSTATE_OFF),
+	// BCM47XX_GPIO_LED(2, "white", "power", 0, LEDS_GPIO_DEFSTATE_ON), // dome_led?
+	BCM47XX_GPIO_LED(6, "white", "usb", 1, LEDS_GPIO_DEFSTATE_OFF),
+	BCM47XX_GPIO_LED(19, "white", "wps", 0, LEDS_GPIO_DEFSTATE_OFF),
+};
+
 /* Siemens */
 static const struct gpio_led
 bcm47xx_leds_siemens_se505v2[] __initconst = {
@@ -812,6 +820,9 @@ void __init bcm47xx_leds_register(void)
 		break;
 	case BCM47XX_BOARD_NETGEAR_WNR834BV2:
 		bcm47xx_set_pdata(bcm47xx_leds_netgear_wnr834bv2);
+		break;
+	case BCM47XX_BOARD_NETGEAR_LG2200D_v1:
+		bcm47xx_set_pdata(bcm47xx_leds_netgear_lg2200dv1);
 		break;
 
 	case BCM47XX_BOARD_SIEMENS_SE505V2:
